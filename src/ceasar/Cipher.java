@@ -8,7 +8,7 @@ public class Cipher {
 	Scanner kb = new Scanner(System.in);
 	System.out.println("Enter message");
 	String message = kb.next();
-	//char message  = kb.charAt(0);
+	char c = message.charAt(0);
 	
 	
 	}
