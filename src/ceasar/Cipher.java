@@ -23,18 +23,21 @@ public class Cipher {
 	static String encrypt(String originalMessage, int shift) {
 		char[] originalMessageCharArray = originalMessage.toCharArray();
 		int firstCharIndex = 'A';   //create an index for the chars
-		int offset = ('z'-'A'); //need to offset for the mod in next steps
+		int offset = ('z'-'A'); //subtracting whatever the first char input was from z
 		
+		//getting index to match numbers to chars
 		for (int i = 0; i < originalMessageCharArray.length; i++) {
 			
 			char oldCharIndex = originalMessageCharArray[i]; //index now equals the letters
 			int oldIndexInAlphabet = oldCharIndex - firstCharIndex; //shows how many letters are involved
-			int newIndexInAlphabet = (oldIndexInAlphabet + shift) % offset;
-			char newCharIndex = (char)(firstCharIndex + newIndexInAlphabet);
-			originalMessageCharArray[i] = newCharIndex;
+			int newIndexInAlphabet = (oldIndexInAlphabet + shift) % offset; //shows the shift of 3 + the subtraction of first char from z
+			char newCharIndex = (char)(firstCharIndex + newIndexInAlphabet);//show new chars after shift
+			originalMessageCharArray[i] = newCharIndex; //represents the new chars after encryption
 		}
 		return new String(originalMessageCharArray);
 	}
+	
+	//need to do something more here, just returned the original value for decryption
 	static String decrypt(String encrypt, int shift) {
 		
 		return encrypt;
@@ -42,4 +45,4 @@ public class Cipher {
 
 
 
-}	
+}
